@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "code": "tags-require-business-unit",
+      "description": "Custom check to ensure the BusinessUnit tag is applied to S3 buckets",
+      "impact": "By not having BusinessUnit we can't keep track of allocation",
+      "resolution": "Add the BusinessUnit tag",
+      "requiredTypes": [
+        "resource"
+      ],
+      "requiredLabels": [
+        "aws_s3_bucket"
+      ],
+      "severity": "ERROR",
+      "matchSpec": {
+        "name": "tags",
+        "action": "contains",
+        "value": "BusinessUnit"
+      },
+      "errorMessage": "The required BusinessUnit tag is missing",
+      "relatedLinks": [
+        ""
+      ]
+    }
+  ]
+}
